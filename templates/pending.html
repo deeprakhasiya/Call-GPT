@@ -1,0 +1,22 @@
+<!-- templates/pending.html -->
+<!doctype html>
+<html lang="en">
+  <head><title>Pending Questions</title></head>
+  <body>
+    <h1>Pending Questions for Review</h1>
+    {% if questions %}
+      <form method="post">
+      {% for q in questions %}
+        <div style="margin-bottom:20px;">
+          <strong>Question:</strong> {{ q }}<br>
+          <textarea name="answer" placeholder="Type your answer here" rows="3" cols="50"></textarea><br>
+          <input type="hidden" name="question" value="{{ q }}">
+          <button type="submit">Submit Answer</button>
+        </div>
+      {% endfor %}
+      </form>
+    {% else %}
+      <p>No pending questions. Waiting for low-confidence queries...</p>
+    {% endif %}
+  </body>
+</html>

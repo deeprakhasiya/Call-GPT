@@ -1,0 +1,39 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+      "title": "Human-in-Loop AI Supervisor API",
+      "version": "1.0.0"
+    },
+    "paths": {
+      "/ask": {
+        "post": {
+          "summary": "Ask a question",
+          "requestBody": {
+            "required": true,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "question": { "type": "string" }
+                  },
+                  "required": ["question"]
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Answer or escalation info",
+              "content": {
+                "application/json": {
+                  "schema": { "type": "object" }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  
