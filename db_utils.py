@@ -3,6 +3,30 @@ import sqlite3
 
 DB_PATH = 'data.db'
 
+def init_db():
+    """
+    Create the necessary tables if they don't exist:
+      - answers(question TEXT PRIMARY KEY, answer TEXT)
+      - pending(question TEXT PRIMARY KEY)
+    """
+    conn = sqlite3.connect(DB_PATH)
+    c = conn.cursor()
+    # Create the human-verified answers table
+    c.execute('''
+        CREATE TABLE IF NOT EXISTS answers (
+            question TEXT PRIMARY KEY,
+            answer TEXT NOT NULL
+        )
+    ''')
+    # Create the pending questions table
+    c.execute('''
+        CREATE TABLE IF NOT EXISTS pending (
+            question TEXT PRIMARY KEY
+        )
+    ''')
+    conn.commit()
+    conn.close()
+
 def get_answer_from_db(question):
     """Return the human-verified answer for the question, or None if not found."""
     conn = sqlite3.connect(DB_PATH)
