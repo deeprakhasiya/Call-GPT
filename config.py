@@ -1,1 +1,0 @@
-CONFIDENCE_THRESHOLD = 50.0  # in percent

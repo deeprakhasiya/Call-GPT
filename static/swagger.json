@@ -1,34 +1,82 @@
 {
-    "openapi": "3.0.0",
-    "info": {
-      "title": "Human-in-Loop AI Supervisor API",
-      "version": "1.0.0"
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Human-in-Loop AI Supervisor API",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/ask": {
+      "post": {
+        "summary": "Ask a question",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "question": { "type": "string" }
+                },
+                "required": ["question"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "AI/DB answer or escalation info",
+            "content": { "application/json": { "schema": {} } }
+          }
+        }
+      }
     },
-    "paths": {
-      "/ask": {
-        "post": {
-          "summary": "Ask a question",
-          "requestBody": {
-            "required": true,
+    "/pending": {
+      "get": {
+        "summary": "List pending questions",
+        "responses": {
+          "200": {
+            "description": "Pending questions",
             "content": {
               "application/json": {
                 "schema": {
                   "type": "object",
                   "properties": {
-                    "question": { "type": "string" }
-                  },
-                  "required": ["question"]
+                    "pending": {
+                      "type": "array",
+                      "items": { "type": "string" }
+                    }
+                  }
                 }
               }
             }
-          },
-          "responses": {
-            "200": {
-              "description": "Answer or escalation info",
-              "content": {
-                "application/json": {
-                  "schema": { "type": "object" }
-                }
+          }
+        }
+      }
+    },
+    "/answer": {
+      "post": {
+        "summary": "Submit human answer",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "question": { "type": "string" },
+                  "answer": { "type": "string" }
+                },
+                "required": ["question", "answer"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Human answer saved and returned",
+            "content": {
+              "application/json": {
+                "schema": {}
               }
             }
           }
@@ -36,4 +84,4 @@
       }
     }
   }
-  
+}
