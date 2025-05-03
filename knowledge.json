@@ -1,7 +1,16 @@
 {
-    "what services do you offer": "We offer haircuts, coloring, styling, manicures, pedicures, and facial treatments.",
-    "what are your opening hours": "Our salon is open from 9 AM to 7 PM, Monday through Saturday.",
-    "where are you located": "We are located at 123 Main Street, Springfield.",
-    "who is the owner": "Our salon is owned by Alice Johnson, a professional stylist with 20 years of experience."
-  }
-  
+  "what services do you offer": "We offer haircuts, coloring, styling, manicures, pedicures, and facial treatments.",
+  "what are your opening hours": "Our salon is open from 9 AM to 7 PM, Monday through Saturday.",
+  "where are you located": "We are located at 123 Main Street, Springfield.",
+  "who is the owner": "Our salon is owned by Alice Johnson, a professional stylist with 20 years of experience.",
+  "do you offer wax service": "! We offer waxing services for eyebrows, legs, and arms.",
+  "do you offer web service?": "We offer Web services to bhkt only",
+  "do you offer web services": "We offer Web services to bhkt only",
+  "you offer bridal packages?": "Yes We offer Multiple Package , which type of package do you want",
+  "who is donor?": "No one is donor",
+  "you offer a wax service?": "Sachin Tendulkar is creator",
+  "who is sachin chandulkar?": "He is Male",
+  "group is owner?": "He is Male",
+  "who is the prakashia?": "He is Living in India",
+  "who is sachin tandula?": "He is Living in India and Serving as Cricketer"
+}
