@@ -103,7 +103,7 @@ async def post_answer(req_id: int, payload: AnswerPayload):
         return agent_session.say(payload.answer.strip())
 
     agent_loop.call_soon_threadsafe(
-    lambda: asyncio.create_task(agent_session.say(payload.answer.strip())))
+    lambda: asyncio.create_task(speak_with_followup(payload.answer.strip())))
 
 
     return {
@@ -112,6 +112,10 @@ async def post_answer(req_id: int, payload: AnswerPayload):
         "question": question_text,
         "answer":   payload.answer
     }
+
+async def speak_with_followup(answer: str):
+    await agent_session.say(answer)
+    await agent_session.say("You can ask me another question anytime.")
 
 def start_api():
     uvicorn.run(app, host="127.0.0.1", port=8000, log_level="warning")
